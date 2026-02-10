@@ -1,0 +1,338 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0071c5 0%, #00c7fd 100%);
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #0071c5;
+    margin-bottom: 15px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #666;
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+/* Timeline Container */
+main {
+    padding: 80px 20px;
+    position: relative;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #0071c5, #00c7fd, #0071c5);
+    box-shadow: 0 0 20px rgba(0, 113, 197, 0.5);
+}
+
+/* Timeline Items */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 40px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.timeline-item.left {
+    left: 0;
+    padding-right: 80px;
+}
+
+.timeline-item.right {
+    left: 50%;
+    padding-left: 80px;
+}
+
+/* Stagger animations */
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.4s; }
+.timeline-item:nth-child(4) { animation-delay: 0.6s; }
+.timeline-item:nth-child(5) { animation-delay: 0.8s; }
+.timeline-item:nth-child(6) { animation-delay: 1s; }
+.timeline-item:nth-child(7) { animation-delay: 1.2s; }
+.timeline-item:nth-child(8) { animation-delay: 1.4s; }
+
+/* Timeline Content */
+.timeline-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.timeline-item.left .timeline-content::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid white;
+}
+
+.timeline-item.right .timeline-content::after {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid white;
+}
+
+.timeline-content:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 113, 197, 0.3);
+}
+
+/* Timeline Dot */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #0071c5;
+    border: 4px solid white;
+    border-radius: 50%;
+    top: 50%;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(0, 113, 197, 0.5);
+    transition: all 0.3s ease;
+}
+
+.timeline-item.left::before {
+    right: -12px;
+}
+
+.timeline-item.right::before {
+    left: -12px;
+}
+
+.timeline-item:hover::before {
+    transform: scale(1.5);
+    background: #00c7fd;
+}
+
+/* Year Badge */
+.year {
+    display: inline-block;
+    background: linear-gradient(135deg, #0071c5, #00c7fd);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0, 113, 197, 0.3);
+}
+
+/* Content Text */
+.timeline-content h3 {
+    color: #0071c5;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.timeline-content p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Icon */
+.icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2.5rem;
+    opacity: 0.2;
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover .icon {
+    opacity: 0.6;
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* Footer */
+footer {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    color: #666;
+    margin: 10px 0;
+}
+
+.footer-note {
+    font-style: italic;
+    color: #0071c5;
+    font-weight: 500;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .timeline-line {
+        left: 30px;
+    }
+
+    .timeline-item,
+    .timeline-item.left,
+    .timeline-item.right {
+        width: 100%;
+        left: 0;
+        padding-left: 80px;
+        padding-right: 20px;
+    }
+
+    .timeline-item::before,
+    .timeline-item.left::before,
+    .timeline-item.right::before {
+        left: 18px;
+        right: auto;
+    }
+
+    .timeline-item.left .timeline-content::after {
+        right: auto;
+        left: -20px;
+        border-left: none;
+        border-right: 20px solid white;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.9rem;
+    }
+
+    .icon {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 40px 20px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    main {
+        padding: 40px 10px;
+    }
+
+    .timeline-item,
+    .timeline-item.left,
+    .timeline-item.right {
+        padding-left: 60px;
+        padding-right: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+
+    .icon {
+        font-size: 1.5rem;
+        top: 15px;
+        right: 15px;
+    }
+}
