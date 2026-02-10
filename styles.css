@@ -21,23 +21,57 @@ body {
 /* Header Styles */
 header {
     background: rgba(255, 255, 255, 0.95);
-    padding: 60px 20px;
+    padding: 40px 20px 60px;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     position: relative;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.intel-logo {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(0 2px 8px rgba(0, 113, 197, 0.3));
 }
 
 header h1 {
     font-size: 3rem;
     color: #0071c5;
     margin-bottom: 15px;
-    animation: fadeInDown 1s ease-out;
+    animation: fadeInDown 1s ease-out 0.2s backwards;
 }
 
 .subtitle {
     font-size: 1.3rem;
     color: #666;
-    animation: fadeInUp 1s ease-out 0.3s backwards;
+    animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 100%);
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.hero-image-container {
+    max-width: 1000px;
+    width: 100%;
+    animation: fadeIn 1.2s ease-out 0.6s backwards;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 113, 197, 0.2);
 }
 
 /* Timeline Container */
@@ -256,12 +290,28 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .intel-logo {
+        height: 45px;
+    }
+
+    header {
+        padding: 30px 20px 40px;
+    }
+
     header h1 {
         font-size: 2rem;
     }
 
     .subtitle {
         font-size: 1rem;
+    }
+
+    .hero-section {
+        padding: 40px 20px;
+    }
+
+    .hero-image-container {
+        max-width: 100%;
     }
 
     .timeline-line {
@@ -305,12 +355,20 @@ footer p {
 }
 
 @media (max-width: 480px) {
+    .intel-logo {
+        height: 35px;
+    }
+
     header {
-        padding: 40px 20px;
+        padding: 25px 20px 30px;
     }
 
     header h1 {
         font-size: 1.5rem;
+    }
+
+    .hero-section {
+        padding: 30px 10px;
     }
 
     main {
