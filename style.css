@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #0071c5, #00a0e3);
+    color: white;
+}
+
+.timeline, .goals {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.timeline-item {
+    background: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.timeline-item:hover {
+    transform: scale(1.02);
+}
+
+.timeline-item summary {
+    font-weight: bold;
+    font-size: 1.1em;
+    outline: none;
+    list-style: none;
+}
+
+.timeline-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.timeline-item summary::before {
+    content: '▶ ';
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.timeline-item[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.timeline-item p {
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+.hidden {
+    display: none;
+}
+
+.goals {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.goal-card {
+    background: white;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.goal-card i {
+    font-size: 40px;
+    color: #0071c5;
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background: #eee;
+}
