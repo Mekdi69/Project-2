@@ -137,14 +137,16 @@ document.addEventListener('keydown', function(e) {
     const activeItem = document.querySelector('.timeline-content.active');
     let currentIndex = Array.from(timelineItems).indexOf(activeItem);
     
-    if (e.key === 'ArrowDown') {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
         e.preventDefault();
-        currentIndex = (currentIndex + 1) % timelineItems.length;
+        // If no item is active, start from 0, otherwise move to next
+        currentIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % timelineItems.length;
         timelineItems[currentIndex].click();
         timelineItems[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
-    } else if (e.key === 'ArrowUp') {
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
         e.preventDefault();
-        currentIndex = (currentIndex - 1 + timelineItems.length) % timelineItems.length;
+        // If no item is active, start from last, otherwise move to previous
+        currentIndex = currentIndex === -1 ? timelineItems.length - 1 : (currentIndex - 1 + timelineItems.length) % timelineItems.length;
         timelineItems[currentIndex].click();
         timelineItems[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -152,4 +154,4 @@ document.addEventListener('keydown', function(e) {
 
 // Log initialization
 console.log('Intel Sustainability Timeline initialized successfully!');
-console.log('Features enabled: Scroll animations, Interactive hover effects, Keyboard navigation');
+console.log('Features enabled: Scroll animations, Interactive hover effects, Keyboard navigation (Arrow keys)');
