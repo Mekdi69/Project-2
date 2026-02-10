@@ -1,3 +1,8 @@
+// Constants for Intel brand colors
+const INTEL_BLUE = '#0071c5';
+const INTEL_LIGHT_BLUE = '#00c7fd';
+const INTEL_BLUE_TRANSPARENT = 'rgba(0, 113, 197, 0.3)';
+
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     initializeTimeline();
@@ -92,7 +97,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Add parallax effect to timeline line
 window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
+    const scrolled = window.scrollY;
     const timelineLine = document.querySelector('.timeline-line');
     
     if (timelineLine) {
@@ -101,10 +106,10 @@ window.addEventListener('scroll', function() {
         
         // Update timeline line gradient based on scroll
         timelineLine.style.background = `linear-gradient(180deg, 
-            #0071c5 0%, 
-            #00c7fd ${scrollPercentage}%, 
-            rgba(0, 113, 197, 0.3) ${scrollPercentage}%, 
-            rgba(0, 113, 197, 0.3) 100%)`;
+            ${INTEL_BLUE} 0%, 
+            ${INTEL_LIGHT_BLUE} ${scrollPercentage}%, 
+            ${INTEL_BLUE_TRANSPARENT} ${scrollPercentage}%, 
+            ${INTEL_BLUE_TRANSPARENT} 100%)`;
     }
 });
 
